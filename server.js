@@ -13,6 +13,14 @@ app.get('/Article-one', function (req, res)
 {res.send('Article one will be served here'); 
 });
 
+app.get('/Article-one', function (req, res)
+{res.send('Article one will be served here'); 
+});
+
+app.get('/Article-one', function (req, res)
+{res.send('Article one will be served here'); 
+});
+
 
 
 
