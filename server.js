@@ -4,8 +4,8 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
-var articleOne = {
+var articles = {
+    'article-One' : {
     title:'Article - One of Mr.Renukumar S ',
     heading :'Article One',
     date : 'Aug 10, 2017',
@@ -19,6 +19,28 @@ var articleOne = {
         <p>
         This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file 
         </p>`
+},
+    'article-Two' : {
+    title:'Article - Two of Mr.Renukumar S ',
+    heading :'Article Two',
+    date : 'Sep 20, 2017',
+    content:`
+        <p>
+        This is the content of my Second HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file 
+        </p>
+        <p>
+        This is the content of my Second HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file 
+        </p>`
+       },
+    'article-Three' : {
+    title:'Article - Three of Mr.Renukumar S ',
+    heading :'Article Three',
+    date : 'Aug 30, 2017',
+    content:`
+        <p>
+        This is the content of my Three HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file              This is the content of my First HTML file 
+        </p>`
+}
 };
 
 function createTemplate(data){
@@ -60,16 +82,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/Article-one', function (req, res){
-    res.send(createTemplate(articleOne));
-});
-
-app.get('/Article-two', function (req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/Article-three', function (req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName', function (req, res){
+    var articleName = req.params.articleName;
+    res.send(createTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
