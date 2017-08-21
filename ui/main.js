@@ -10,6 +10,6 @@ button.onclick = function(){
             }
         }
     };
-    request.open('GET','http://renukumars.imad.hasura-app.io/counter', true);
+    request.open('get','http://renukumars.imad.hasura-app.io/counter', true);
     request.send(null);
 };
