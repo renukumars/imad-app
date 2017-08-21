@@ -1,7 +1,7 @@
 var button = document.getElementById('counter');
 button.onclick = function(){
     var request = new XMLHttpRequest();
-    request.onreadystatechange = function(){
+    request.onreadystatechange = function() {
         if(request.readyState === XMLHttpRequest.DONE){
             if(request.state === 200){
                 var counter = request.responseText;
@@ -10,6 +10,6 @@ button.onclick = function(){
             }
         }
     };
-    request.open('GET','http://renukumars.imad.hasura-app.io/counter',true);
+    request.open('GET','http://renukumars.imad.hasura-app.io/counter', true);
     request.send(null);
 };
