@@ -1,8 +1,15 @@
 var button = document.getElementById('counter');
-var counter=0;
 button.onclick = function(){
-    counter = counter +1;
-    var span = document.getElementById('count');
-    span.innerHTML = counter.toString();
-    
+    var request = new XMLHttpRequest();
+    request.onreadystatechnage = function(){
+        if(request.readyState===XMLHttpRequest.DONE){
+            if(request.state===200){
+                var counter = request.requestText;
+                var span = document.getElementById('Count');
+                span.innerHTML = count.toString();
+            }
+        }
+    };
+    request.open('GET','http://renukumars.imad.hasura-app.io/counter',true);
+    request.send(null);
 };
