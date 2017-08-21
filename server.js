@@ -60,6 +60,9 @@ var htmlTemplate =  `
         <link href="/ui/style.css" rel="stylesheet" />
         </head>
         <Body>
+        <div><a href="/article-one">Article-One</a></div>
+        <div><a href="/article-two">Article-Two</a></div>
+        <div><a href="/article-three">Article-Three</a></div>
             <div class="container">
                 <div>
                     <a href="/">Home</a>
